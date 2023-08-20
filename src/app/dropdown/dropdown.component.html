@@ -1,0 +1,47 @@
+<!-- <p>dropdown works!</p> -->
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form [formGroup]="formDetails"  class="bg-warning my-5">
+        <div class="row p-5">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">First Name</label>
+              <input type="text" class="form-control" formControlName="fName"/>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Last Name</label>
+              <input type="text" class="form-control" formControlName="lName"/>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">contact</label>
+              <select name="contact" class="form-control" formControlName="contact">
+                <option value="" hidden selected>Choose Option</option>
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+          </div>
+         <!-- {{formDetails.value.contact}} -->
+          <div class="col-6">
+            <div class="form-group" *ngIf="formDetails.value.contact == 'phone' ">
+              <label for="">Phone</label>
+              <input type="text" class="form-control" formControlName="phone"/>
+            </div>
+            <div class="form-group" *ngIf="formDetails.value.contact == 'email' ">
+              <label for="">Email</label>
+              <input type="text" class="form-control" formControlName="email"/>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary mb-3 px-5">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!-- <p>radio works!</p> -->
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3 mt-5 ">
+            <form class="bg-light mb-5 border" [formGroup]="formCtr">
+                <div class="row p-5">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">First Name</label>
+                            <input type="text" class="form-control" formControlName="fname">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lname">
+                        </div>
+                    </div>
+                    <!-- {{formCtr.value.contact}} -->
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">How Should We Contact You</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radioOption" id="phone" value="phone" formControlName="contact">
+                                <label class="form-check-label" for="phone">Phone</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radioOption" id="email" value="email" formControlName="contact">
+                                <label class="form-check-label" for="email">Email</label>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group" *ngIf="formCtr.value.contact == 'phone'">
+                            <label for="">Phone</label>
+                            <input type="text" class="form-control" formControlName="phone">
+                        </div>
+                        <div class="form-group" *ngIf="formCtr.value.contact == 'email'">
+                            <label for="">Email</label>
+                            <input type="text" class="form-control" formControlName="email">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-success mb-3 px-5">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
